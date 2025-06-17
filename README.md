@@ -22,7 +22,7 @@ _An intelligent IoT-based security and lighting system using ESP32 and cloud con
 - [✨ Features](#-features)
 - [🛠️ Required Components](#-required-components)
 - [📚 Libraries Used](#-libraries-used)
-- [📊 System Flowchart](#-system-flowchart)
+- [📊 Flowchart](#-flowchart)
 - [🔌 Simulated Circuit](#-simulated-circuit)
 - [🎥 Demo Video](#-demo-video)
 - [📁 Project Structure](#-project-structure)
