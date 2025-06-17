@@ -205,7 +205,6 @@ IoT-Smart-Security-System/
 │   └── 📄 flowchart.png            # flowchart of the code
 ├── 📄 README.md                    # Project documentation
 ├── 📄 LICENSE                      # MIT License
-└── 📄 .gitignore                   # Git ignore rules
 ```
 
 ---
