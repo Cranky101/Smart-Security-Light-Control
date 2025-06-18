@@ -324,7 +324,7 @@ Connecting to MQTT... MQTT Connected!
 ```
 IoT-Smart-Security-System/
 ├── 📁 images/
-│   └── 📄 circuit-diagram.png   # Circuit schematic
+│   └── 📄 circuit_diagram.png   # Circuit schematic
 │   └── 📄 flowchart.png         # Flowchart of the code
 ├── 📁 src/
     └── 📄 main.ino             # Main Arduino sketch with all functionality
