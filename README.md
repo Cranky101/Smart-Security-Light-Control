@@ -13,7 +13,7 @@ _An intelligent IoT-based security and lighting system using ESP32 and cloud con
 
 ---
 
-## 📋 Table of Contents
+## 📋 Overview
 
 - [🎯 Aim](#-aim)
 - [❗ Problem Statement](#-problem-statement)
@@ -24,6 +24,7 @@ _An intelligent IoT-based security and lighting system using ESP32 and cloud con
 - [📚 Libraries Used](#-libraries-used)
 - [📊 Flowchart](#-flowchart)
 - [🔌 Simulated Circuit](#-simulated-circuit)
+- [🚀 Usage Guide](#-usage-guide)
 - [🎥 Demo Video](#-demo-video)
 - [📁 Project Structure](#-project-structure)
 - [📡 MQTT Configuration](#-mqtt-configuration)
@@ -99,6 +100,19 @@ This IoT Smart Security & Light Control System is an intelligent home automation
 
 ---
 
+## ✨ Features
+
+- **🚨 Motion Detection**: PIR sensor-based human presence detection
+- **🌞 Light Sensing**: Automatic light control based on ambient conditions
+- **☁️ Cloud Connectivity**: Real-time data transmission via MQTT
+- **📊 Dashboard Monitoring**: Live status updates on Adafruit IO
+- **🔔 Instant Alerts**: Immediate security notifications
+- **💡 Smart Lighting**: Energy-efficient automated lighting system
+- **📱 Remote Control**: Monitor and control from anywhere with internet
+- **🔋 Low Power**: Optimized for energy efficiency
+
+---
+
 ## 🛠️ Required Components
 
 ### 🔧 **Hardware Components**
@@ -110,8 +124,8 @@ This IoT Smart Security & Light Control System is an intelligent home automation
 | LDR (Light Dependent Resistor) | 1        | 5-200kΩ resistance range           | Ambient light sensing                  |
 | LED (Red)                      | 1        | 5mm, 20mA forward current          | Security alert indicator               |
 | LED (White/Yellow)             | 1        | 5mm, 20mA forward current          | Automatic lighting control             |
-| Resistors                      | 3        | 220Ω (2x), 10kΩ (1x)               | Current limiting and pull-up           |
-| Breadboard                     | 1        | Half-size or full-size             | Circuit prototyping                    |
+| Resistors                      | 2        | 220Ω (2x)                          | Current limiting and pull-up           |
+| Breadboard                     | 1        | Mini Breadboard                    | Circuit prototyping                    |
 | Jumper Wires                   | 15-20    | Male-to-male                       | Component connections                  |
 
 ### 💻 **Software Requirements**
@@ -130,6 +144,14 @@ This IoT Smart Security & Light Control System is an intelligent home automation
 | **Adafruit IO**   | Adafruit Industries | MQTT broker, data feeds, dashboard | Free tier available        |
 | **WiFi Internet** | Local ISP           | Network connectivity               | User's existing connection |
 | **Web Dashboard** | Adafruit IO         | Remote monitoring interface        | Included in service        |
+
+---
+
+## 📚 Libraries Used
+
+- **WiFi.h**: ESP32 WiFi connectivity
+- **Adafruit_MQTT.h**: MQTT protocol implementation
+- **Adafruit_MQTT_Client.h**: MQTT client for Adafruit IO
 
 ---
 
@@ -156,27 +178,148 @@ This IoT Smart Security & Light Control System is an intelligent home automation
 
 _Complete circuit diagram from Wokwi simulation - Image to be added_
 
-### 🔗 **Component Connections**
-
-| Component       | ESP32 Pin       | Wire Color | Description                    |
-| --------------- | --------------- | ---------- | ------------------------------ |
-| PIR Sensor VCC  | 3.3V            | Red        | Power supply                   |
-| PIR Sensor GND  | GND             | Black      | Ground connection              |
-| PIR Sensor OUT  | GPIO 12         | Yellow     | Motion detection signal        |
-| LDR Pin 1       | 3.3V via 10kΩ   | Red        | Power through pull-up resistor |
-| LDR Pin 2       | GPIO 34 (ADC)   | Green      | Analog input for light sensing |
-| LDR Pin 2       | GND             | Black      | Ground connection              |
-| Alert LED (+)   | GPIO 2 via 220Ω | Red        | Security status indicator      |
-| Alert LED (-)   | GND             | Black      | Ground connection              |
-| Control LED (+) | GPIO 4 via 220Ω | Blue       | Automatic light control        |
-| Control LED (-) | GND             | Black      | Ground connection              |
-
 ### ⚙️ **Circuit Features**
 
 - 🔌 **Power Supply**: 3.3V from ESP32 for all components
 - 🛡️ **Protection**: Current limiting resistors for LEDs
 - 📡 **Communication**: Digital and analog GPIO pins
 - 🔧 **Expandable**: Additional GPIO pins available for future enhancements
+
+---
+
+## 🚀 Usage Guide
+
+Follow these step-by-step instructions to get your IoT Smart Security & Light Control System up and running:
+
+### 📋 **Prerequisites**
+
+Before starting, make sure you have:
+
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
+- Stable internet connection
+- Valid email address for account creation
+
+---
+
+### 🌐 **Step 1: Access the Wokwi Project**
+
+1. **Open the Project**: Click on the link below to access the pre-configured Wokwi simulation:
+
+   [![Open in Wokwi](https://img.shields.io/badge/🔗-Open%20Wokwi%20Project-orange?style=for-the-badge&logo=wokwi&logoColor=white)](https://wokwi.com/projects/434034620905714689)
+
+2. **Explore the Circuit**: Take a moment to familiarize yourself with the circuit layout and components
+
+---
+
+### 🔧 **Step 2: Set Up Adafruit IO Account**
+
+#### **Create Your Account**
+
+1. **Visit Adafruit IO**: Go to [io.adafruit.com](https://io.adafruit.com)
+2. **Sign Up**: Click "Get Started for Free" and create your account
+3. **Verify Email**: Check your email and verify your account
+4. **Login**: Sign in to your new Adafruit IO account
+
+#### **Get Your Credentials**
+
+1. **Navigate to Settings**: Click on your username → "My Key"
+2. **Copy Credentials**: You'll need:
+   - **AIO Username**: Your Adafruit IO username
+   - **AIO Key**: Your unique Active Key (keep this secret!)
+
+---
+
+### 📡 **Step 3: Create Data Feeds**
+
+Create the following feeds in your Adafruit IO dashboard:
+
+#### **Required Feeds Setup**
+
+1. **Go to Feeds**: Click "Feeds" in the top navigation
+2. **Create New Feed**: Click "New Feed" button
+3. **Create these feeds one by one**:
+
+| Feed Name         | Feed Key          | Description                        |
+| ----------------- | ----------------- | ---------------------------------- |
+| `motion-detected` | `motion-detected` | PIR sensor motion detection status |
+| `light-level`     | `light-level`     | LDR ambient light readings         |
+| `security-alert`  | `security-alert`  | Security system alert status       |
+| `auto-light`      | `auto-light`      | Automatic light control status     |
+
+#### **Feed Creation Steps**:
+
+- **Name**: Enter the feed name
+- **Description**: Add a brief description
+- **Privacy**: Keep as "Public" or "Private" (your choice)
+- Click **"Create"**
+
+---
+
+### ⚙️ **Step 4: Configure the Code**
+
+#### **Update Adafruit IO Credentials**
+
+1. **Return to Wokwi Project**: Go back to the [Wokwi project](https://wokwi.com/projects/434034620905714689)
+2. **Open Code Editor**: Click on the `sketch.ino` file
+3. **Find Configuration Section**: Look for these lines near the top:
+
+```cpp
+#define AIO_USERNAME    "YOUR_AIO_USERNAME"
+#define AIO_KEY         "YOUR_AIO_KEY"
+```
+
+4. **Replace Credentials**:
+   - Replace `YOUR_AIO_USERNAME` with your actual Adafruit IO username
+   - Replace `YOUR_AIO_KEY` with your actual AIO key from Step 2
+
+#### **Update WiFi Settings** (Optional for Simulation)
+
+For simulation purposes, the default WiFi settings work fine:
+
+```cpp
+#define WLAN_SSID       "Wokwi-GUEST"
+#define WLAN_PASS       ""
+```
+
+---
+
+### ✅ **Step 5: Run the Simulation**
+
+#### **Start Simulation**
+
+1. **Click Start**: Press the green "Start Simulation" button in Wokwi
+2. **Monitor Serial Output**: Watch the serial monitor for connection status
+3. **Check Connections**: Verify WiFi and MQTT connections are successful
+
+#### **Expected Serial Output**
+
+```
+WiFi connected! IP: xx.xx.x.x
+System Ready!
+Connecting to MQTT... MQTT Connected!
+📡 Publishing data...
+```
+
+---
+
+### 🚨 **Troubleshooting**
+
+#### **Common Issues & Solutions**
+
+| Issue                      | Possible Cause        | Solution                             |
+| -------------------------- | --------------------- | ------------------------------------ |
+| **WiFi Connection Failed** | Wrong credentials     | Check WiFi SSID and password         |
+| **MQTT Connection Failed** | Wrong AIO credentials | Verify AIO username and key          |
+| **No Data in Dashboard**   | Feeds not created     | Create required feeds in Adafruit IO |
+| **Sensors Not Working**    | Circuit connections   | Check wiring in Wokwi circuit        |
+| **LEDs Not Lighting**      | Resistor values       | Verify 220Ω resistors are connected  |
+
+#### **Debug Tips**
+
+1. **Check Serial Monitor**: Always monitor serial output for error messages
+2. **Verify Feeds**: Ensure all feed names match exactly in code and Adafruit IO
+3. **Test Connections**: Use simple MQTT test messages first
+4. **Check Syntax**: Ensure no typos in credentials
 
 ---
 
@@ -193,19 +336,52 @@ _Complete system demonstration video - Link to be added_
 ```
 IoT-Smart-Security-System/
 ├── 📁 src/
-│   ├── 📄 main.ino                 # Main Arduino sketch
-│   ├── 📄 wifi_config.h            # WiFi configuration
-│   ├── 📄 mqtt_config.h            # MQTT/Adafruit IO config
-│   └── 📄 sensor_functions.h       # Sensor handling functions
-├── 📁 simulation/
-│   ├── 📄 wokwi-project.json       # Wokwi project configuration
-│   └── 📄 diagram.json             # Circuit diagram data
+│   └── 📄 main.ino             # Main Arduino sketch with all functionality
+├── 📄 diagram.json               # Wokwi circuit configuration
+├── 📄 libraries.txt              # Required libraries list
 ├── 📁 images/
-│   └── 📄 circuit-diagram.png      # Circuit schematic
-│   └── 📄 flowchart.png            # flowchart of the code
-├── 📄 README.md                    # Project documentation
-├── 📄 LICENSE                      # MIT License
+│   └── 📄 circuit-diagram.png   # Circuit schematic
+│   └── 📄 flowchart.png         # Flowchart of the code
+├── 📄 README.md                 # Project documentation
+└── 📄 LICENSE                   # MIT License
 ```
+
+---
+
+## 📡 MQTT Configuration
+
+### **Adafruit IO Settings**
+
+```cpp
+#define AIO_SERVER      "io.adafruit.com"
+#define AIO_SERVERPORT  1883
+#define AIO_USERNAME    "your_aio_username"
+#define AIO_KEY         "your_aio_key"
+```
+
+### **Feed Configuration**
+
+```cpp
+Adafruit_MQTT_Publish motion_feed = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/motion-detected");
+Adafruit_MQTT_Publish light_feed = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/light-level");
+Adafruit_MQTT_Publish alert_feed = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/security-alert");
+```
+
+---
+
+## 🌐 Wokwi Development
+
+### **Simulation Features**
+
+- **Real-time Circuit Simulation**: Test your circuit before building hardware
+- **Component Library**: Extensive library of IoT components
+- **Code Editor**: Integrated Arduino IDE with syntax highlighting
+- **Serial Monitor**: Debug output and system monitoring
+- **WiFi Simulation**: Simulated internet connectivity for cloud testing
+
+### **Wokwi Project Link**
+
+🔗 **Direct Access**: [https://wokwi.com/projects/434034620905714689](https://wokwi.com/projects/434034620905714689)
 
 ---
 
