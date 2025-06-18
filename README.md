@@ -172,9 +172,7 @@ This IoT Smart Security & Light Control System is an intelligent home automation
 
 ## 🔌 Simulated Circuit
 
-![Wokwi Circuit Simulation](wokwi-circuit-diagram.png)
-
-_Complete circuit diagram from Wokwi simulation - Image to be added_
+![Wokwi Circuit Simulation](images/circuit_diagram.png)
 
 ### ⚙️ **Circuit Features**
 
