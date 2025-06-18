@@ -242,6 +242,8 @@ Create the following feeds in your Adafruit IO dashboard:
 | `security-alert`  | `security-alert`  | Security system alert status       |
 | `auto-light`      | `auto-light`      | Automatic light control status     |
 
+#### ❗**Please make sure that the feed name and key is same as above**
+
 #### **Feed Creation Steps**:
 
 - **Name**: Enter the feed name
@@ -251,7 +253,7 @@ Create the following feeds in your Adafruit IO dashboard:
 
 ---
 
-### ⚙️ **Step 4: Configure the Code**
+### ⚙️ **Step 4: Configure the Code **
 
 #### **Update Adafruit IO Credentials**
 
