@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 8.2, "left": 122.4, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -249.6, "left": 235.24, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -255.2,
+      "left": -64.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -92.8,
+      "left": -200.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -3.6,
+      "left": 503.4,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -22.8,
+      "left": 397.8,
+      "attrs": { "color": "blue", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 119.15,
+      "left": 326.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": 480,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:13", "pir1:OUT", "gray", [ "h0" ] ],
+    [ "ldr1:DO", "esp:34", "green", [ "h86.4", "v-163.8" ] ],
+    [ "esp:3V3", "bb1:5t.a", "red", [ "h0" ] ],
+    [ "pir1:VCC", "bb1:5t.b", "red", [ "v19.2", "h153.6" ] ],
+    [ "ldr1:VCC", "bb1:5t.c", "red", [ "h0" ] ],
+    [ "pir1:GND", "bb1:1t.a", "black", [ "v0" ] ],
+    [ "ldr1:GND", "bb1:1t.b", "black", [ "h0" ] ],
+    [ "esp:GND.1", "bb1:1t.c", "black", [ "h0" ] ],
+    [ "r1:1", "bb1:1t.e", "black", [ "v0" ] ],
+    [ "r2:1", "bb1:1t.d", "black", [ "v-48", "h-38.4" ] ],
+    [ "r1:2", "led2:C", "black", [ "v0" ] ],
+    [ "led2:A", "esp:2", "gold", [ "v28.8", "h38", "v-134.4" ] ],
+    [ "led1:C", "r2:2", "black", [ "v0" ] ],
+    [ "led1:A", "esp:4", "gold", [ "v28.8", "h57.2", "v-172.8" ] ]
+  ],
+  "dependencies": {}
+}

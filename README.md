@@ -25,12 +25,10 @@ _An intelligent IoT-based security and lighting system using ESP32 and cloud con
 - [📊 Flowchart](#-flowchart)
 - [🔌 Simulated Circuit](#-simulated-circuit)
 - [🚀 Usage Guide](#-usage-guide)
-- [🎥 Demo Video](#-demo-video)
 - [📁 Project Structure](#-project-structure)
 - [📡 MQTT Configuration](#-mqtt-configuration)
 - [🌐 Wokwi Development](#-wokwi-development)
 - [📄 License](#-license)
-- [🤝 Contributing](#-contributing)
 
 ---
 
@@ -320,14 +318,6 @@ Connecting to MQTT... MQTT Connected!
 2. **Verify Feeds**: Ensure all feed names match exactly in code and Adafruit IO
 3. **Test Connections**: Use simple MQTT test messages first
 4. **Check Syntax**: Ensure no typos in credentials
-
----
-
-## 🎥 Demo Video
-
-[![IoT Smart Security System Demo](https://img.shields.io/badge/▶️-Watch%20Demo%20Video-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/your-demo-video-link)
-
-_Complete system demonstration video - Link to be added_
 
 ---
 
