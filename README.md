@@ -325,15 +325,15 @@ Connecting to MQTT... MQTT Connected!
 
 ```
 IoT-Smart-Security-System/
-├── 📁 src/
-│   └── 📄 main.ino             # Main Arduino sketch with all functionality
-├── 📄 diagram.json               # Wokwi circuit configuration
-├── 📄 libraries.txt              # Required libraries list
 ├── 📁 images/
 │   └── 📄 circuit-diagram.png   # Circuit schematic
 │   └── 📄 flowchart.png         # Flowchart of the code
-├── 📄 README.md                 # Project documentation
+├── 📁 src/
+    └── 📄 main.ino             # Main Arduino sketch with all functionality
+    └──📄 diagram.json               # Wokwi circuit configuration
+    └──📄 libraries.txt              # Required libraries list
 └── 📄 LICENSE                   # MIT License
+├── 📄 README.md                 # Project documentation
 ```
 
 ---
